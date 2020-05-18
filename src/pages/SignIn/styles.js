@@ -6,8 +6,8 @@ import Button from '~/components/Button';
 
 export const Container = styled.View`
   flex: 1;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   margin: 20px 30px;
 `;
 
@@ -34,7 +34,6 @@ export const SignLink = styled.TouchableOpacity`
 
 export const ForgotButton = styled.TouchableOpacity`
   margin-top: 20px;
-  margin-bottom: -20px;
 
   ${Platform.OS === 'android' &&
     css`
@@ -47,4 +46,5 @@ export const ForgotText = styled.Text`
   color: #ff9000;
   font-weight: bold;
   font-size: 16px;
+  margin-top: 10px;
 `;

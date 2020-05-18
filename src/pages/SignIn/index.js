@@ -84,8 +84,7 @@ export default function SingIn({ navigation }) {
       >
         <ScrollView
           keyboardShouldPersistTaps="handled"
-          style={{ flex: 1 }}
-          contentContainerStyle={{ flex: Platform.OS === 'ios' ? 1 : 0 }}
+          contentContainerStyle={{ flex: 1 }}
         >
           <Container>
             <Image
