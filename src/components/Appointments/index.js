@@ -33,8 +33,11 @@ const Appointmets = forwardRef(({ data, reload, past }, ref) => {
     if (data.appointment) {
       setHasAppointment(true);
       setHasPast(data.appointment.past);
+    } else {
+      setHasAppointment(false);
+      setHasPast(false);
     }
-  }, [data.appointment]);
+  }, [data]);
 
   const handleCancel = useCallback(
     async id => {
