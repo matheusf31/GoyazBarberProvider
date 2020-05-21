@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useRef } from 'react';
 import {
   Image,
   ScrollView,
@@ -34,46 +34,43 @@ export default function SingIn({ navigation }) {
 
   const loading = useSelector(state => state.auth.loading);
 
-  const handleSubmit = useCallback(
-    async data => {
-      try {
-        if (formRef.current) {
-          formRef.current.setErrors({});
-        }
-
-        const { email, password } = data;
-
-        const schema = Yup.object().shape({
-          email: Yup.string()
-            .email('Digite um e-mail válido.')
-            .required('E-mail obrigatório'),
-          password: Yup.string().required('Senha obrigatória'),
-        });
-
-        await schema.validate(data, {
-          abortEarly: false,
-        });
-
-        dispatch(signInRequest(email, password));
-      } catch (err) {
-        if (err instanceof Yup.ValidationError) {
-          const errors = getValidationErrors(err);
-
-          if (formRef.current) {
-            formRef.current.setErrors(errors);
-          }
-
-          return;
-        }
-
-        Alert.alert(
-          'Erro no login.',
-          'Verifique seus dados ou entre em contato com o provedor.'
-        );
+  async function handleSubmit(data) {
+    try {
+      if (formRef.current) {
+        formRef.current.setErrors({});
       }
-    },
-    [dispatch]
-  );
+
+      const { email, password } = data;
+
+      const schema = Yup.object().shape({
+        email: Yup.string()
+          .email('Digite um e-mail válido.')
+          .required('E-mail obrigatório'),
+        password: Yup.string().required('Senha obrigatória'),
+      });
+
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+
+      dispatch(signInRequest(email, password));
+    } catch (err) {
+      if (err instanceof Yup.ValidationError) {
+        const errors = getValidationErrors(err);
+
+        if (formRef.current) {
+          formRef.current.setErrors(errors);
+        }
+
+        return;
+      }
+
+      Alert.alert(
+        'Erro no login.',
+        'Verifique seus dados ou entre em contato com o provedor.'
+      );
+    }
+  }
 
   return (
     <Background>
