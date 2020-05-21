@@ -3,7 +3,7 @@ import { Dimensions, Alert } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 import { withNavigationFocus } from '@react-navigation/compat';
 
-import { getWeekOfMonth, parseISO, format } from 'date-fns';
+import { getWeekOfMonth, parseISO } from 'date-fns';
 import pt from 'date-fns/locale/pt-BR';
 
 import api from '~/services/api';
@@ -145,7 +145,7 @@ function Graphic({ isFocused }) {
             weeks[5].profit,
             weeks[6].profit,
           ],
-          color: () => `rgba(35, 56, 136, 0.7)`, // muda a cor da linha
+          color: () => `rgba(255, 144, 0, 0.7)`, // muda a cor da linha
         },
       ],
       legend: ['Renda por semana'],
@@ -182,7 +182,7 @@ function Graphic({ isFocused }) {
                   backgroundGradientTo: '#fff',
                   backgroundGradientFromOpacity: 1,
                   backgroundGradientToOpacity: 1,
-                  color: () => `rgba(35, 56, 136, 0.1)`, // cor das linhas e do preenchimento delas
+                  color: () => `rgba(255, 144, 0, 0.1)`, // cor das linhas e do preenchimento delas
                   labelColor: (opacity = 1) => `rgba(84, 84, 84, ${opacity})`, // cor do chartData
                   propsForDots: {
                     r: '3',
@@ -190,7 +190,7 @@ function Graphic({ isFocused }) {
                     stroke: '#fff',
                   },
                   strokeWidth: 2, // optional, default 3
-                  fillShadowGradient: '#60BEF3',
+                  fillShadowGradient: '#F1B260',
                   decimalPlaces: 0,
                 }}
                 bezier
@@ -205,7 +205,8 @@ function Graphic({ isFocused }) {
 
               <TableContainer>
                 <TableTitle>
-                  Lucro de {format(date, 'MMMM', { locale: pt })}
+                  Lucro
+                  {/* Lucro de {format(date, 'MMMM', { locale: pt })} */}
                 </TableTitle>
 
                 {weeks.map((week, index) => (
@@ -244,22 +245,18 @@ function Graphic({ isFocused }) {
 
               <TableContainer>
                 <TableTitle>
-                  Clientes de {format(date, 'MMMM', { locale: pt })}
+                  Clientes
+                  {/* Clientes de {format(date, 'MMMM', { locale: pt })} */}
                 </TableTitle>
 
                 {weeks.map((week, index) => (
                   <TableContent key={index.toString()}>
-                    {week.customers ? (
+                    {week.customers && (
                       <>
                         <TableFirstColumn>Semana {index + 1}</TableFirstColumn>
                         <TableTotalColumn>
                           {week.customers.length}
                         </TableTotalColumn>
-                      </>
-                    ) : (
-                      <>
-                        <TableFirstColumn>Semana {index + 1}</TableFirstColumn>
-                        <TableTotalColumn>R$ 0</TableTotalColumn>
                       </>
                     )}
                   </TableContent>
@@ -271,11 +268,10 @@ function Graphic({ isFocused }) {
                 </TableFooter>
               </TableContainer>
 
-              <TableContainer
-                style={{ justifyContent: 'flex-start', height: 130 }}
-              >
+              <TableContainer style={{ height: 130 }}>
                 <TableTitle>
-                  Agendamentos de {format(date, 'MMMM', { locale: pt })}
+                  Agendamentos
+                  {/* Agendamentos de {format(date, 'MMMM', { locale: pt })} */}
                 </TableTitle>
 
                 <TableFooter>

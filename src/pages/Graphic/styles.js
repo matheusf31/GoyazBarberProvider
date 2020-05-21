@@ -19,7 +19,7 @@ export const Charts = styled.ScrollView`
 `;
 
 export const ChartView = styled.View`
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 `;
 
 export const TableContainer = styled.View`
@@ -27,7 +27,7 @@ export const TableContainer = styled.View`
   padding: 10px 20px;
 
   background: #fff;
-  height: 200px;
+
   border-radius: 5px;
 
   justify-content: space-around;
@@ -35,9 +35,11 @@ export const TableContainer = styled.View`
 
 export const TableTitle = styled.Text`
   font-size: 20px;
-  color: rgba(35, 56, 136, 0.7);
+  color: rgba(255, 144, 0, 0.7);
   font-weight: bold;
   align-self: center;
+
+  margin-bottom: 10px;
 `;
 
 export const TableContent = styled.View`
@@ -45,7 +47,7 @@ export const TableContent = styled.View`
   justify-content: space-between;
   align-items: center;
 
-  margin: 0 20px;
+  margin: 2px 20px;
 `;
 
 export const TableContentTotal = styled.View`
@@ -57,7 +59,7 @@ export const TableContentTotal = styled.View`
 `;
 
 export const TableFirstColumn = styled.Text`
-  font-size: 12px;
+  font-size: 14px;
   color: #000;
 `;
 
