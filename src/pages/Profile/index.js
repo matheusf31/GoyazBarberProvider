@@ -126,12 +126,14 @@ export default function Profile() {
         Alert.alert('Erro ao atualizar perfil.', err.response.data.error);
       }
     },
-    [avatar, dispatch, profile]
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [avatar, profile]
   );
 
-  const handleLogout = useCallback(() => {
+  function handleLogout() {
     dispatch(signOut());
-  }, [dispatch]);
+  }
 
   return (
     <Background>
