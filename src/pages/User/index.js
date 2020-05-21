@@ -80,11 +80,13 @@ function User({ isFocused }) {
             <Icon name="chevron-left" size={26} color="#ff9000" />
           </HeaderLeftButton>
         )}
+
         <HeaderTitle>
           {1 + (page - 1) * 5} -{' '}
           {page === maxPages ? clients.length : 5 + (page - 1) * 5} de{' '}
           {clients.length}
         </HeaderTitle>
+
         {page < maxPages && (
           <HeaderRightButton onPress={() => setPage(page + 1)}>
             <Icon name="chevron-right" size={26} color="#ff9000" />

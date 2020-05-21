@@ -36,7 +36,7 @@ export const HeaderTitle = styled.Text`
   margin: 0 20px;
   align-self: center;
 
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
 `;
 
